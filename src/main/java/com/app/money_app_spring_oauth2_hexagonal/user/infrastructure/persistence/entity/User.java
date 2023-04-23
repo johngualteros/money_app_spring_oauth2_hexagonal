@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.lang.Nullable;
 
 // lombok library
@@ -33,12 +34,12 @@ public class User {
     @Size(min = 3, message = "the name must have 3 characters min")
     private String name;
 
-    @Column
+    @Column(unique = true)
     @NotNull(message = "the username field is required")
     @Size(min = 3, message = "the username  must have 3 characters min")
     private String username;
 
-    @Column
+    @Column(unique = true)
     @NotNull(message = "the email field is required")
     @Email(message = "the email entered not has the correct format")
     private String email;
